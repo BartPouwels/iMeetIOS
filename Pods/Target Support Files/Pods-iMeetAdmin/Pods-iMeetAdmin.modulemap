@@ -1,0 +1,6 @@
+framework module Pods_iMeetAdmin {
+  umbrella header "Pods-iMeetAdmin-umbrella.h"
+
+  export *
+  module * { export * }
+}

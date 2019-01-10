@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MvW-zG-k19">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Evenementen-->
+        <scene sceneID="zPJ-qz-sBK">
+            <objects>
+                <viewController title="Evenementen" id="4Vn-uz-TTc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kvw-VO-NHN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h16-hi-U3l">
+                                <rect key="frame" x="130.66666666666666" y="334" width="152.99999999999997" height="30"/>
+                                <state key="normal" title="Evenement toevoegen"/>
+                                <connections>
+                                    <segue destination="u9O-he-bRE" kind="show" id="f0r-Yp-GIf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDp-pF-dJr">
+                                <rect key="frame" x="146" y="259" width="122" height="30"/>
+                                <state key="normal" title="Alle evenementen"/>
+                                <connections>
+                                    <segue destination="RA7-Pd-YWV" kind="show" id="JVA-NO-gLB"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imeetLogoEvenementen" translatesAutoresizingMaskIntoConstraints="NO" id="J08-a8-geU">
+                                <rect key="frame" x="82" y="109" width="250" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="1XS-Ps-xX4"/>
+                                    <constraint firstAttribute="width" constant="250" id="3ff-Wc-d37"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="h16-hi-U3l" firstAttribute="centerX" secondItem="kvw-VO-NHN" secondAttribute="centerX" id="84w-Ut-JKI"/>
+                            <constraint firstItem="hDp-pF-dJr" firstAttribute="centerX" secondItem="kvw-VO-NHN" secondAttribute="centerX" id="QLP-XD-GXR"/>
+                            <constraint firstItem="hDp-pF-dJr" firstAttribute="top" secondItem="J08-a8-geU" secondAttribute="bottom" constant="80" id="ScB-gE-kID"/>
+                            <constraint firstItem="J08-a8-geU" firstAttribute="centerX" secondItem="kvw-VO-NHN" secondAttribute="centerX" id="aZJ-bp-q7Y"/>
+                            <constraint firstItem="J08-a8-geU" firstAttribute="top" secondItem="JFe-Yd-3qH" secondAttribute="top" constant="45" id="bMA-LE-QnR"/>
+                            <constraint firstItem="h16-hi-U3l" firstAttribute="top" secondItem="hDp-pF-dJr" secondAttribute="bottom" constant="45" id="hFj-Jx-wx1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JFe-Yd-3qH"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Evenementen" id="H5p-r9-Log"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RAc-oz-Xvg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1337.109375" y="-955.46875"/>
+        </scene>
+        <!--Alle evenementen-->
+        <scene sceneID="eFq-Cc-XuW">
+            <objects>
+                <tableViewController title="Alle evenementen" id="RA7-Pd-YWV" customClass="EventTableViewController" customModule="iMeetAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="S2C-0a-22J">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCell" id="eEk-X2-M05">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eEk-X2-M05" id="pWW-i3-UVe">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="57s-79-Jis" kind="show" identifier="eventDetailSegue" id="ecX-lD-uDL"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="RA7-Pd-YWV" id="Wmc-Gb-7k2"/>
+                            <outlet property="delegate" destination="RA7-Pd-YWV" id="MZk-h3-bbE"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T0t-UJ-dN5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2091" y="-1348"/>
+        </scene>
+        <!--Evenement toevoegen-->
+        <scene sceneID="GTW-Cy-YdR">
+            <objects>
+                <viewController title="Evenement toevoegen" id="u9O-he-bRE" customClass="AddEventViewController" customModule="iMeetAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X8k-9w-Z0S">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="oZo-MP-fsv">
+                                <rect key="frame" x="82" y="75" width="250" height="586.33333333333337"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Naam evenement:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBm-2e-PZG">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NMn-2w-sHh" userLabel="Naam Textfield">
+                                        <rect key="frame" x="0.0" y="35.333333333333329" width="250" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="NameTextfield"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datum:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wq1-2s-rq9">
+                                        <rect key="frame" x="0.0" y="80.333333333333343" width="250" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="YHb-IZ-GvF" userLabel="Datum Datepicker">
+                                        <rect key="frame" x="0.0" y="115.66666666666666" width="250" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="AEI-bp-KIK"/>
+                                            <constraint firstAttribute="height" constant="120" id="Msn-T7-uzj"/>
+                                        </constraints>
+                                        <date key="date" timeIntervalSinceReferenceDate="544890190.574898">
+                                            <!--2018-04-08 14:23:10 +0000-->
+                                        </date>
+                                        <locale key="locale" localeIdentifier="nl_NL"/>
+                                    </datePicker>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cQU-EJ-JP0">
+                                        <rect key="frame" x="0.0" y="250.66666666666669" width="250" height="140.33333333333331"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="L5x-Md-tNw" userLabel="Starttijd Stack View">
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="140.33333333333334"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starttijd:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="te1-Zw-Hqq">
+                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="20.333333333333332"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="WY1-Ie-gpe" userLabel="Startijd Datepicker">
+                                                        <rect key="frame" x="0.0" y="20.333333333333314" width="125" height="120"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="120" id="T3E-jB-xF3"/>
+                                                            <constraint firstAttribute="width" constant="125" id="iku-JL-SNZ"/>
+                                                        </constraints>
+                                                        <date key="date" timeIntervalSinceReferenceDate="544890190.574898">
+                                                            <!--2018-04-08 14:23:10 +0000-->
+                                                        </date>
+                                                        <locale key="locale" localeIdentifier="nl_NL"/>
+                                                    </datePicker>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="125" id="53e-0U-yO0"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tKb-ch-fNG" userLabel="Eindtijd Stack View">
+                                                <rect key="frame" x="125" y="0.0" width="125" height="140.33333333333334"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eindtijd:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cl-k8-e0i">
+                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="20.333333333333332"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="r17-27-Ga4" userLabel="Eindtijd Datepicker">
+                                                        <rect key="frame" x="0.0" y="20.333333333333314" width="125" height="120"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="120" id="WVl-U6-lp2"/>
+                                                            <constraint firstAttribute="width" constant="125" id="uRZ-g2-wk7"/>
+                                                        </constraints>
+                                                        <date key="date" timeIntervalSinceReferenceDate="544890190.574898">
+                                                            <!--2018-04-08 14:23:10 +0000-->
+                                                        </date>
+                                                        <locale key="locale" localeIdentifier="nl_NL"/>
+                                                    </datePicker>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="125" id="Zaa-xT-wAQ"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="gD1-Y3-IOY"/>
+                                        </constraints>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Omschrijving:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f55-9W-Ryx">
+                                        <rect key="frame" x="0.0" y="406" width="250" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JJi-j3-mtK" userLabel="Omschrijving Textview">
+                                        <rect key="frame" x="0.0" y="441.33333333333337" width="250" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="m9P-fQ-KfR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wmY-2g-VZQ">
+                                        <rect key="frame" x="0.0" y="556.33333333333337" width="250" height="30"/>
+                                        <state key="normal" title="Evenement toevoegen"/>
+                                        <connections>
+                                            <action selector="AddEventButton:" destination="u9O-he-bRE" eventType="touchUpInside" id="xAP-sh-7z2"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oZo-MP-fsv" firstAttribute="centerX" secondItem="X8k-9w-Z0S" secondAttribute="centerX" id="8fC-yX-3CN"/>
+                            <constraint firstItem="oZo-MP-fsv" firstAttribute="centerY" secondItem="X8k-9w-Z0S" secondAttribute="centerY" id="OYM-LS-LE1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="feU-5J-IwN"/>
+                    </view>
+                    <connections>
+                        <outlet property="dateDatePicker" destination="YHb-IZ-GvF" id="Hp3-O4-SNS"/>
+                        <outlet property="descriptionTextView" destination="JJi-j3-mtK" id="oSw-fW-Sbv"/>
+                        <outlet property="endTimeDatePicker" destination="r17-27-Ga4" id="pf9-Yh-TcM"/>
+                        <outlet property="nameTextField" destination="NMn-2w-sHh" id="ifa-vk-iMq"/>
+                        <outlet property="startTimeDatePicker" destination="WY1-Ie-gpe" id="jQh-RO-tgx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GAp-n2-fmZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2090.625" y="-623.4375"/>
+        </scene>
+        <!--Bezoekers-->
+        <scene sceneID="oWw-cO-k7U">
+            <objects>
+                <viewController title="Bezoekers" id="aLu-fJ-ksO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t32-JO-As5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T7p-oE-AW9">
+                                <rect key="frame" x="157" y="259" width="101" height="30"/>
+                                <state key="normal" title="Alle bezoekers"/>
+                                <connections>
+                                    <segue destination="Pxf-Q7-ebl" kind="show" id="I81-nF-h6P"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHO-q2-Hyg">
+                                <rect key="frame" x="137" y="334" width="141" height="30"/>
+                                <state key="normal" title="Bezoeker toevoegen"/>
+                                <connections>
+                                    <segue destination="3Hc-F8-8wW" kind="show" id="Vmc-zC-9QY"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imeetLogoBezoekers" translatesAutoresizingMaskIntoConstraints="NO" id="QsZ-T6-vuH">
+                                <rect key="frame" x="82.666666666666686" y="109" width="250" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="dOW-Lz-BJs"/>
+                                    <constraint firstAttribute="height" constant="70" id="laF-a0-reO"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FHO-q2-Hyg" firstAttribute="top" secondItem="T7p-oE-AW9" secondAttribute="bottom" constant="45" id="a0p-cb-T4d"/>
+                            <constraint firstItem="QsZ-T6-vuH" firstAttribute="top" secondItem="lk4-Xa-Jra" secondAttribute="top" constant="45" id="d9Q-A1-05s"/>
+                            <constraint firstItem="T7p-oE-AW9" firstAttribute="top" secondItem="QsZ-T6-vuH" secondAttribute="bottom" constant="80" id="igL-sL-cTd"/>
+                            <constraint firstItem="QsZ-T6-vuH" firstAttribute="centerX" secondItem="t32-JO-As5" secondAttribute="centerX" id="lHx-1U-6df"/>
+                            <constraint firstItem="FHO-q2-Hyg" firstAttribute="centerX" secondItem="t32-JO-As5" secondAttribute="centerX" id="m4O-vS-LpH"/>
+                            <constraint firstItem="T7p-oE-AW9" firstAttribute="centerX" secondItem="t32-JO-As5" secondAttribute="centerX" id="mmB-gN-Ziz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lk4-Xa-Jra"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Bezoekers" id="iWB-Iq-ndh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4tn-O6-GIg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1336.2318840579712" y="393.75000000000006"/>
+        </scene>
+        <!--Alle bezoekers-->
+        <scene sceneID="ovL-xw-DJl">
+            <objects>
+                <tableViewController title="Alle bezoekers" id="Pxf-Q7-ebl" customClass="VisitorTableViewController" customModule="iMeetAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xEF-Ye-5Pg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCell" id="BJr-8m-Wa1">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BJr-8m-Wa1" id="kuB-Hk-51z">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="whO-YO-xG9" kind="show" identifier="visitorDetailSegue" id="7NC-gI-OpB"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Pxf-Q7-ebl" id="8RT-ZS-Lki"/>
+                            <outlet property="delegate" destination="Pxf-Q7-ebl" id="Yhg-yw-1gi"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Alle bezoekers" id="dLm-lL-VrL"/>
+                    <connections>
+                        <outlet property="tableView" destination="xEF-Ye-5Pg" id="874-2j-n6i"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iDy-I8-3b1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2091" y="63"/>
+        </scene>
+        <!--Bezoeker toevoegen-->
+        <scene sceneID="jnc-80-Hcb">
+            <objects>
+                <viewController title="Bezoeker toevoegen" id="3Hc-F8-8wW" customClass="AddVisitorViewController" customModule="iMeetAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7K7-Ud-FOt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="e0g-QK-I8l">
+                                <rect key="frame" x="47" y="82.333333333333314" width="320" height="571.66666666666674"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Naam:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yXQ-Es-Ai2">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sEc-te-j2O" userLabel="Naam Textfield">
+                                        <rect key="frame" x="0.0" y="40.333333333333343" width="320" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="NameTextfield"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Geboortedatum:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIf-pN-BsM">
+                                        <rect key="frame" x="0.0" y="90.333333333333329" width="320" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="LLO-rW-bGx" userLabel="Geboortedatum Datepicker">
+                                        <rect key="frame" x="0.0" y="130.66666666666669" width="320" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="fki-lU-e8P"/>
+                                        </constraints>
+                                        <date key="date" timeIntervalSinceReferenceDate="544890190.574898">
+                                            <!--2018-04-08 14:23:10 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telefoonnummer thuis:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7J-L6-NvZ">
+                                        <rect key="frame" x="0.0" y="270.66666666666669" width="320" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XWZ-5L-njd" userLabel="Telefoon Textfield">
+                                        <rect key="frame" x="0.0" y="311" width="320" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mailadres:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTU-oj-GaX">
+                                        <rect key="frame" x="0.0" y="361" width="320" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UUl-0P-knY" userLabel="Email Textfield">
+                                        <rect key="frame" x="0.0" y="401.33333333333337" width="320" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opmerkingen:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8w-Cq-iqL">
+                                        <rect key="frame" x="0.0" y="451.33333333333331" width="320" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NJX-Zp-pRJ" userLabel="Opmerkingen Textfield">
+                                        <rect key="frame" x="0.0" y="491.66666666666669" width="320" height="30.000000000000057"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFd-l1-bkJ">
+                                        <rect key="frame" x="0.0" y="541.66666666666663" width="320" height="30"/>
+                                        <state key="normal" title="Bezoeker toevoegen"/>
+                                        <connections>
+                                            <action selector="addVisitorButton:" destination="3Hc-F8-8wW" eventType="touchUpInside" id="oCJ-ab-Sz5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="e0g-QK-I8l" firstAttribute="centerY" secondItem="7K7-Ud-FOt" secondAttribute="centerY" id="c1e-hY-RrU"/>
+                            <constraint firstItem="e0g-QK-I8l" firstAttribute="centerX" secondItem="7K7-Ud-FOt" secondAttribute="centerX" id="uvw-Tk-Bt6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="J5g-uj-Lh3"/>
+                    </view>
+                    <connections>
+                        <outlet property="dateOfBirthDatePicker" destination="LLO-rW-bGx" id="yST-Be-8rR"/>
+                        <outlet property="emailTextField" destination="UUl-0P-knY" id="jPE-YT-QBi"/>
+                        <outlet property="infoTextField" destination="NJX-Zp-pRJ" id="xBF-fu-9RH"/>
+                        <outlet property="nameTextfield" destination="sEc-te-j2O" id="XU7-94-mgf"/>
+                        <outlet property="phoneNumberTextField" destination="XWZ-5L-njd" id="khT-G9-TM9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ma3-dc-oIC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2090.625" y="865.625"/>
+        </scene>
+        <!--Bezoeker informatie-->
+        <scene sceneID="tO5-6j-Las">
+            <objects>
+                <viewController title="Bezoeker informatie" id="whO-YO-xG9" customClass="VisitorDetailViewController" customModule="iMeetAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Afv-xz-4x6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="o33-ju-Oxs">
+                                <rect key="frame" x="115.00000000000001" y="153.99999999999997" width="184.33333333333337" height="428.33333333333326"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Naam:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwN-H2-zcg">
+                                        <rect key="frame" x="0.0" y="0.0" width="184.33333333333334" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zln-S4-Ylr" userLabel="NaamLabel">
+                                        <rect key="frame" x="0.0" y="45.333333333333343" width="184.33333333333334" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Geboortedatum:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgs-oB-P2n">
+                                        <rect key="frame" x="0.0" y="90.666666666666657" width="184.33333333333334" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34T-IX-LCJ" userLabel="GeboortedatumLabel">
+                                        <rect key="frame" x="0.0" y="136" width="184.33333333333334" height="20.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telefoonnummer thuis:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCC-LZ-bUd">
+                                        <rect key="frame" x="0.0" y="181.33333333333331" width="184.33333333333334" height="20.333333333333343"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4l-Eo-p54" userLabel="TelefoonnummerLabel">
+                                        <rect key="frame" x="0.0" y="226.66666666666669" width="184.33333333333334" height="20.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mailadres:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xC2-Jh-aYO">
+                                        <rect key="frame" x="0.0" y="272" width="184.33333333333334" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kse-On-VZY" userLabel="EmailLabel">
+                                        <rect key="frame" x="0.0" y="317.33333333333331" width="184.33333333333334" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opmerkingen:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msp-PB-iLp">
+                                        <rect key="frame" x="0.0" y="362.66666666666663" width="184.33333333333334" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hn0-yQ-QxO" userLabel="OpmerkingenLabel">
+                                        <rect key="frame" x="0.0" y="408" width="184.33333333333334" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="o33-ju-Oxs" firstAttribute="centerX" secondItem="Afv-xz-4x6" secondAttribute="centerX" id="nnr-c9-Kf2"/>
+                            <constraint firstItem="o33-ju-Oxs" firstAttribute="centerY" secondItem="Afv-xz-4x6" secondAttribute="centerY" id="veD-1k-2kV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zWB-zv-yuT"/>
+                    </view>
+                    <connections>
+                        <outlet property="date_of_birthLabel" destination="34T-IX-LCJ" id="lP2-RJ-1yS"/>
+                        <outlet property="emailLabel" destination="kse-On-VZY" id="ivo-BI-45X"/>
+                        <outlet property="infoLabel" destination="hn0-yQ-QxO" id="bPr-Bf-wU7"/>
+                        <outlet property="nameLabel" destination="zln-S4-Ylr" id="xjg-0c-yph"/>
+                        <outlet property="phoneLabel" destination="x4l-Eo-p54" id="MOA-2n-iUA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q4G-D0-FzH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2896.875" y="62.5"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="y55-8A-pIZ">
+            <objects>
+                <tabBarController id="MvW-zG-k19" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Z3j-sN-g0o">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="f98-Hc-G7D" kind="relationship" relationship="viewControllers" id="4nb-tF-IAq"/>
+                        <segue destination="Hbc-v3-Gfo" kind="relationship" relationship="viewControllers" id="omi-ev-Z1C"/>
+                        <segue destination="wvZ-W9-s5L" kind="relationship" relationship="viewControllers" id="Wy2-hu-IWb"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S8j-sD-09c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-612" y="64"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="2aH-Ec-xmt">
+            <objects>
+                <viewController id="f98-Hc-G7D" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t14-Cj-UBe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imeetLogoAdmin" translatesAutoresizingMaskIntoConstraints="NO" id="V0l-3B-K8e">
+                                <rect key="frame" x="39" y="304" width="336" height="129"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="336" id="1TD-e7-rWV"/>
+                                    <constraint firstAttribute="height" constant="129" id="aLF-oC-GgG"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="V0l-3B-K8e" firstAttribute="centerY" secondItem="t14-Cj-UBe" secondAttribute="centerY" id="al0-df-6Ay"/>
+                            <constraint firstItem="V0l-3B-K8e" firstAttribute="centerX" secondItem="t14-Cj-UBe" secondAttribute="centerX" id="h8a-SJ-aNB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="n1y-RO-4CZ"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="homeIcon" id="fXB-Ra-kaD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jup-17-Mj4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-613.04347826086962" y="1003.5326086956522"/>
+        </scene>
+        <!--Bezoekers-->
+        <scene sceneID="0rx-o7-qAE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wvZ-W9-s5L" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Bezoekers" image="personIcon" id="gWX-HP-dgs"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GKf-1O-ctI">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aLu-fJ-ksO" kind="relationship" relationship="rootViewController" id="fPc-f8-7l6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KrW-0w-VsS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="612.890625" y="394.53125"/>
+        </scene>
+        <!--Evenementen-->
+        <scene sceneID="xys-0b-ACn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hbc-v3-Gfo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Evenementen" image="eventIcon" id="BbR-T6-vgU"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Esa-6D-kIq">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4Vn-uz-TTc" kind="relationship" relationship="rootViewController" id="yPh-tI-Bfh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m9I-SI-Kqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="612.890625" y="-955.46875"/>
+        </scene>
+        <!--Evenement informatie-->
+        <scene sceneID="ZjG-dJ-QRG">
+            <objects>
+                <viewController title="Evenement informatie" id="57s-79-Jis" customClass="EventDetailViewController" customModule="iMeetAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o5N-f1-9df">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dyS-TT-lxZ">
+                                <rect key="frame" x="97" y="93" width="220" height="550"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Naam evenement:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVd-qD-Iaj">
+                                        <rect key="frame" x="0.0" y="0.0" width="220" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5c-Lc-6tz" userLabel="Naamlabel">
+                                        <rect key="frame" x="0.0" y="40.333333333333343" width="220" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datum:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyT-KO-RjF">
+                                        <rect key="frame" x="0.0" y="80.666666666666657" width="220" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KnU-cr-wSK" userLabel="Datumlabel">
+                                        <rect key="frame" x="0.0" y="120.99999999999999" width="220" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starttijd:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXy-wU-ZYm">
+                                        <rect key="frame" x="0.0" y="161.33333333333334" width="220" height="20.333333333333343"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMX-O2-GDu" userLabel="Starttijdlabel">
+                                        <rect key="frame" x="0.0" y="201.66666666666669" width="220" height="20.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eindtijd:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoY-uJ-vze">
+                                        <rect key="frame" x="0.0" y="242" width="220" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHh-hj-oRI" userLabel="Eindtijdlabel">
+                                        <rect key="frame" x="0.0" y="282.33333333333331" width="220" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Omschrijving:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uH-vC-dOi">
+                                        <rect key="frame" x="0.0" y="322.66666666666669" width="220" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="F0j-YB-t94" userLabel="Omschrijving Textview">
+                                        <rect key="frame" x="0.0" y="363" width="220" height="137"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UgJ-kw-HZH">
+                                        <rect key="frame" x="0.0" y="520" width="220" height="30"/>
+                                        <state key="normal" title="Bezoekers openen"/>
+                                        <connections>
+                                            <segue destination="WiJ-AL-VLV" kind="show" identifier="registeredVisitorsSegue" id="7q3-Um-VBJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="550" id="aMw-sM-w0D"/>
+                                    <constraint firstAttribute="width" constant="220" id="bpU-fG-aNz"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dyS-TT-lxZ" firstAttribute="centerY" secondItem="o5N-f1-9df" secondAttribute="centerY" id="fx9-tH-J0F"/>
+                            <constraint firstItem="dyS-TT-lxZ" firstAttribute="centerX" secondItem="o5N-f1-9df" secondAttribute="centerX" id="iAw-yK-ir7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bVo-Sg-5ji"/>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="KnU-cr-wSK" id="8kT-ED-G5y"/>
+                        <outlet property="descriptionTextView" destination="F0j-YB-t94" id="28G-Dr-1Cb"/>
+                        <outlet property="endTimeLabel" destination="AHh-hj-oRI" id="Ncz-Ax-ESY"/>
+                        <outlet property="nameLabel" destination="Q5c-Lc-6tz" id="csf-f3-sNe"/>
+                        <outlet property="startTimeLabel" destination="CMX-O2-GDu" id="m4Q-SX-f57"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qgb-Sc-cw4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2897" y="-1348"/>
+        </scene>
+        <!--Bezoekers evenement-->
+        <scene sceneID="aXF-fa-CJy">
+            <objects>
+                <viewController title="Bezoekers evenement" id="WiJ-AL-VLV" customClass="RegisteredVisitorsViewController" customModule="iMeetAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ro3-Xb-XpE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wW3-J6-JF5">
+                                <rect key="frame" x="123" y="652" width="168" height="30"/>
+                                <state key="normal" title="Bezoekerskaart scannen"/>
+                                <connections>
+                                    <action selector="scannerButton:" destination="WiJ-AL-VLV" eventType="touchUpInside" id="58Y-5f-L4F"/>
+                                    <segue destination="skf-j4-73U" kind="show" identifier="QRScannerSegue" id="sVX-rA-49O"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kq3-lM-nrt">
+                                <rect key="frame" x="0.0" y="64" width="414" height="585"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell" id="Zyd-Nv-vAq">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zyd-Nv-vAq" id="dQa-1N-3vD">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="WiJ-AL-VLV" id="uDA-uX-Pe0"/>
+                                    <outlet property="delegate" destination="WiJ-AL-VLV" id="S81-Oa-W4t"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kq3-lM-nrt" firstAttribute="centerX" secondItem="Ro3-Xb-XpE" secondAttribute="centerX" id="66I-3P-GjI"/>
+                            <constraint firstItem="kq3-lM-nrt" firstAttribute="trailing" secondItem="rHT-gH-1k2" secondAttribute="trailing" id="DBj-si-4UC"/>
+                            <constraint firstItem="wW3-J6-JF5" firstAttribute="top" secondItem="kq3-lM-nrt" secondAttribute="bottom" constant="3" id="SMs-l4-CFT"/>
+                            <constraint firstItem="wW3-J6-JF5" firstAttribute="centerX" secondItem="Ro3-Xb-XpE" secondAttribute="centerX" id="VLX-Hv-xY8"/>
+                            <constraint firstItem="kq3-lM-nrt" firstAttribute="top" secondItem="rHT-gH-1k2" secondAttribute="top" id="YGH-s5-V2K"/>
+                            <constraint firstItem="kq3-lM-nrt" firstAttribute="leading" secondItem="rHT-gH-1k2" secondAttribute="leading" id="rse-bh-VB4"/>
+                            <constraint firstItem="rHT-gH-1k2" firstAttribute="bottom" secondItem="wW3-J6-JF5" secondAttribute="bottom" constant="5" id="t9z-Qg-U0v"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rHT-gH-1k2"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="kq3-lM-nrt" id="wCv-AK-SfO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BIj-W4-no1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3627.5362318840585" y="-1348.3695652173915"/>
+        </scene>
+        <!--Scanner View Controller-->
+        <scene sceneID="OlO-F0-0J8">
+            <objects>
+                <viewController storyboardIdentifier="QRScanner" id="skf-j4-73U" customClass="QRScannerViewController" customModule="iMeetAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Er8-Nc-X3v">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scan bezoekerskaart" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bax-ZC-wzd" userLabel="Message label">
+                                <rect key="frame" x="0.0" y="647" width="414" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="77r-lu-diN"/>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="bax-ZC-wzd" id="y4O-Az-fQs"/>
+                        <segue destination="gGp-vv-GEi" kind="unwind" identifier="ReverseQRScannerSegue" unwindAction="ReverseQRScannerSegueWithSender:" id="LCr-6Z-lwl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QDH-7T-UnE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gGp-vv-GEi" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4496" y="-1688"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="eventIcon" width="28" height="28"/>
+        <image name="homeIcon" width="28" height="28"/>
+        <image name="imeetLogoAdmin" width="825" height="241"/>
+        <image name="imeetLogoBezoekers" width="825" height="241"/>
+        <image name="imeetLogoEvenementen" width="825" height="241"/>
+        <image name="personIcon" width="28" height="28"/>
+    </resources>
+</document>
